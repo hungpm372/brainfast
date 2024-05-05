@@ -10,7 +10,7 @@ import { TOOLS } from '@/constants'
 import ToolItem from './tool-item'
 
 interface ToolsNavigationProps {
-  title: string
+  title?: string
 }
 
 const ToolsNavigation: React.FC<ToolsNavigationProps> = ({ title = 'Unlock the power of AI' }) => {
