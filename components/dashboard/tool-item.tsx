@@ -38,7 +38,7 @@ export interface ToolItemProps {
   slug: 'code' | 'audio' | 'video' | 'photo' | 'conversation'
 }
 
-const ToolItem: React.FC<ToolItemProps> = ({ icon, title, url, slug, color }) => {
+const ToolItem: React.FC<ToolItemProps> = ({ icon, title, url, slug }) => {
   return (
     <div
       className={cn(
@@ -51,7 +51,7 @@ const ToolItem: React.FC<ToolItemProps> = ({ icon, title, url, slug, color }) =>
           <div className='flex items-center'>
             <div className='mr-6 rounded-lg p-1 w-16 h-16 relative flex justify-center'>
               <div className={cn(toolItemColorVariants({ color: slug }))} />
-              <Image width={24} height={24} src={icon} alt={title} />
+              <Image width={0} height={0} src={icon} alt={title} className='w-6 h-auto' />
             </div>
             <span className='font-medium'>{title}</span>
           </div>
