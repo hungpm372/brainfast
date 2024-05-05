@@ -1,3 +1,5 @@
+import { ToolItemProps } from './components/dashboard/tool-item'
+
 /**
  * @author Phan Minh Hung
  * @email hungpm372@gmail.com
@@ -19,7 +21,7 @@ export const THEME_MODES = [
   }
 ]
 
-export const TOOLS = [
+export const TOOLS: ToolItemProps[] = [
   {
     title: 'Conversation',
     icon: '/icons/conversation.svg',

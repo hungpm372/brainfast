@@ -6,10 +6,14 @@
  * @desc I am a student of information technology
  * @github https://github.com/hungpm372
  */
-import React from 'react'
+import ToolsNavigation from '@/components/dashboard/tools-navigation'
 
 const DashboardPage = () => {
-	return <div>DashboardPageDashboardPage</div>
+	return (
+    <div>
+      <ToolsNavigation />
+    </div>
+  )
 }
 
 export default DashboardPage
