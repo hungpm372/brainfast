@@ -10,12 +10,13 @@ import UpgradeProModal from '@/components/dashboard/upgrade-pro-modal'
 import Sidebar from '@/components/sidebar'
 import MobileSidebar from '@/components/sidebar/mobile-sidebar'
 import Topbar from '@/components/topbar'
+import { checkSubscription, getUserLimitCount } from '@/lib/user-limit'
 import { cn } from '@/lib/utils'
 import React from 'react'
 
-const DashboardLayout = (props: { children: React.ReactNode }) => {
-  const isProPlan = false
-  const userLimitCount = 0
+const DashboardLayout = async (props: { children: React.ReactNode }) => {
+  const isProPlan = await checkSubscription()
+  const userLimitCount = await getUserLimitCount()
   return (
     <div>
       <header>

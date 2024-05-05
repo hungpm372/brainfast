@@ -10,6 +10,7 @@ import OpenAI from 'openai'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
 import { NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs'
+import { checkSubscription, checkUserLimit, incrementUserLimit } from '@/lib/user-limit'
 
 // Create an OpenAI API client
 const openai = new OpenAI({
@@ -27,13 +28,33 @@ export async function POST(req: Request) {
 
     if (!messages) return new NextResponse('Messages are required', { status: 400 })
 
+    const reachToLimit = await checkUserLimit()
+    const isPro = await checkSubscription()
+
+    if (!reachToLimit && !isPro) {
+      return NextResponse.json(
+        {
+          message:
+            'You have reached the limit of free usage. Please upgrade to Pro plan to continue using the service.',
+          status: 403
+        },
+        { status: 403 }
+      )
+    }
+
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       stream: true,
       messages
     })
 
-    const stream = OpenAIStream(response)
+    const stream = OpenAIStream(response, {
+      onCompletion: async () => {
+        if (!isPro) {
+          await incrementUserLimit()
+        }
+      }
+    })
 
     return new StreamingTextResponse(stream)
   } catch (error) {
