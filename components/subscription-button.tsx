@@ -27,6 +27,8 @@ const SubscriptionButton: React.FC<SubscriptionButtonProps> = ({ className, isPr
       setLoading(true)
 
       const { data } = await axios.get('/api/stripe')
+
+      location.href = data.url
     } catch (error) {
       toast({
         variant: 'destructive',
