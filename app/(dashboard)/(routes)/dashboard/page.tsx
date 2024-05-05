@@ -11,7 +11,7 @@ import ToolsNavigation from '@/components/dashboard/tools-navigation'
 const DashboardPage = () => {
 	return (
     <div>
-      <ToolsNavigation />
+      <ToolsNavigation title='Unlock the power of AI' />
     </div>
   )
 }
