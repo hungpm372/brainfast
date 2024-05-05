@@ -71,6 +71,15 @@ body,
         --input: 0 0% 14.9%;
         --ring: 0 0% 83.1%;
     }
+
+    .scrollbar-none {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .gradient-btn {
+        @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+    }
 }
 
 @layer base {
