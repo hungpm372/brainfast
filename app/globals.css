@@ -9,6 +9,10 @@ body,
     position: relative;
 }
 
+.cl-internal-b3fm6y {
+    display: none;
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -110,6 +114,8 @@ body,
     .gradient-btn {
         @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
     }
+
+
 }
 
 @layer base {

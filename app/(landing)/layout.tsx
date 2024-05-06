@@ -6,10 +6,18 @@
  * @desc I am a student of information technology
  * @github https://github.com/hungpm372
  */
+import Footer from '@/components/landing/footer'
+import Topbar from '@/components/landing/topbar'
 import React from 'react'
 
 const LandingLayout = (props: { children: React.ReactNode }) => {
-  return <div>{props.children}</div>
+  return (
+    <div className='min-h-screen'>
+      <Topbar />
+      <main className='max-w-5xl mx-auto'>{props.children}</main>
+      <Footer />
+    </div>
+  )
 }
 
 export default LandingLayout

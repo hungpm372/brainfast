@@ -46,8 +46,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className, isProPlan, userLimitCount 
           isMinimal && 'lg:left-3'
         )}
       >
-        <div className='mb-4 p-4 rounded-lg bg-gray-900'>
-          <div className='mb-4 flex items-center'>
+        <div className='mb-4 p-2 rounded-lg bg-gray-900'>
+          <div className={cn('mb-4 flex items-center', isMinimal && 'justify-center m-0')}>
             <UserButton afterSignOutUrl='/' />
             {!isMinimal && (
               <span className='text-sm ml-4'>{user?.emailAddresses?.[0]?.emailAddress}</span>
